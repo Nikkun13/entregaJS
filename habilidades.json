@@ -1,0 +1,116 @@
+[
+  {
+    "id": 1,
+    "nombre": "Atacar",
+    "descripcion": "Acción de ataque estandar",
+    "coste": 0
+  },
+  {
+    "id": 2,
+    "nombre": "Defender",
+    "descripcion": "Acción de defensa estandar",
+    "coste": 0
+  },
+  {
+    "id": 3,
+    "nombre": "Enfoque",
+    "descripcion": "Concentra fuerza para el próximo ataque. Acción de defensa. Coste 4 puntos de energía",
+    "coste": 4
+  },
+  {
+    "id": 4,
+    "nombre": "Golpe al punto débil",
+    "descripcion": "Ataque donde mas duele, ignora la defensa rival. Acción de ataque. Coste 5 puntos de energía",
+    "coste": 5
+  },
+  {
+    "id": 5,
+    "nombre": "Golpe en el estómago",
+    "descripcion": "Deja al enemigo sin aliento, restandole energía además de daño. Acción de ataque. Coste 6 puntos de energía",
+    "coste": 6
+  },
+  {
+    "id": 6,
+    "nombre": "Gancho en la quijada",
+    "descripcion": "Probabilidad de aturdir al enemigo si no se está defendiendo, además de hacer un poco mas de daño. Acción de ataque. Coste 7 puntos de energía",
+    "coste": 7
+  },
+  {
+    "id": 7,
+    "nombre": "Plantado",
+    "descripcion": "Se planta en el suelo para defender, recupera energía adicional y sube la defensa minimamente. Acción de defensa. Coste 4 puntos de energía",
+    "coste": 4
+  },
+  {
+    "id": 8,
+    "nombre": "Golpe con escudo",
+    "descripcion": "Agrega la defensa al daño causado. Acción de ataque. Coste 5 puntos de energía",
+    "coste": 5
+  },
+  {
+    "id": 9,
+    "nombre": "Contraataque",
+    "descripcion": "El enemigo recibe la mitad del daño que causa. Acción de defensa. Coste 6 puntos de energía",
+    "coste": 6
+  },
+  {
+    "id": 10,
+    "nombre": "Defensa de hierro",
+    "descripcion": "Aumenta en gran medida la defensa, y si puede soportar sin recibir daño, se cura un poco. Acción de defensa. Coste 7 puntos de energía",
+    "coste": 7
+  },
+  {
+    "id": 11,
+    "nombre": "Ataque desesperado",
+    "descripcion": "Ataca primero, pero a costa de bajar su propia defensa. Acción de ataque. Coste 4 puntos de energía",
+    "coste": 4
+  },
+  {
+    "id": 12,
+    "nombre": "Ataque rápido",
+    "descripcion": "Agrega la agilidad al daño. Acción de ataque. Coste 5 puntos de energía",
+    "coste": 5
+  },
+  {
+    "id": 13,
+    "nombre": "Esquiva asombrosa",
+    "descripcion": "Probabilidad de esquivar un ataque enemigo. Acción de defensa. Coste 6 puntos de energía",
+    "coste": 6
+  },
+  {
+    "id": 14,
+    "nombre": "Ataque ráfaga",
+    "descripcion": "Realiza 3 ataques ágiles. Acción de ataque. Coste 7 puntos de energía",
+    "coste": 7
+  },
+  {
+    "id": 15,
+    "nombre": "Último aliento",
+    "descripcion": "Sobrevive una vez al daño letal. Pasiva",
+    "coste": 0
+  },
+  {
+    "id": 16,
+    "nombre": "Hiperactivo",
+    "descripcion": "Su energía máxima es de 13 y empieza con 6. Pasiva",
+    "coste": 0
+  },
+  {
+    "id": 17,
+    "nombre": "Meditación",
+    "descripcion": "Genera 1 de energía adicional por turno. Pasiva",
+    "coste": 0
+  },
+  {
+    "id": 18,
+    "nombre": "Regeneración",
+    "descripcion": "Regenera 1 de vida por turno. Pasiva",
+    "coste": 0
+  },
+  {
+    "id": 19,
+    "nombre": "Revitalización",
+    "descripcion": "Regenera 2 de vida por turno. Pasiva",
+    "coste": 0
+  }
+]

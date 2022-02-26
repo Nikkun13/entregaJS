@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-weight: 400;
+}
+
+body {
+  font-family: "Merriweather", serif;
+  background-color: tan;
+}
+
+header h1 {
+  color: red;
+  text-align: center;
+  background-color: wheat;
+  font-size: 3rem;
+  padding: 15px;
+}
+
+main {
+  min-height: 80vh;
+  width: 100%;
+  justify-content: space-around;
+  padding: 15px;
+}
+
+main #modo,
+#tutorial {
+  justify-content: space-between;
+  font-size: 2rem;
+}
+
+.parrafo {
+  justify-content: space-between;
+  font-size: 2rem;
+}
+
+main #turnos {
+  justify-content: space-between;
+  font-size: 1.7rem;
+}
+
+.volteado {
+  transform: scaleX(-1);
+}
