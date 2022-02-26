@@ -277,7 +277,7 @@ function submitHabilidades(jugadores, imagenes) {
     }
     $(`#formulario`).append(`<section id="seccion${valor}"></section>`);
     $(`#seccion${valor}`).append(
-      `</br><img src="./imagenes/Inicio${imagenes[z]}.png" alt="retrato" class="volteado"><p>Guerrero:</p>`
+      `</br><img src="./imagenes/inicio${imagenes[z]}.png" alt="retrato" class="volteado"><p>Guerrero:</p>`
     );
     for (const parametro of parametros) {
       if (parametro == "nombre") {
