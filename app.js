@@ -3598,7 +3598,7 @@ function desarrolloTurno() {
       $(`#opciones`).append(`
           <div class="card" style="width: auto;">
             <div id= "card${j}" class="card-body">
-            <img src="./imagenes/Inicio${
+            <img src="./imagenes/inicio${
               personajes[j].imagenId
             }.png" alt="retrato" class="volteado">
             <h3 class="card-title"><b>${personajes[j].nombre}</b></h3>
