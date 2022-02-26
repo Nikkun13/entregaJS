@@ -1487,7 +1487,7 @@ function botonCrearPersonaje(e) {
   for (const enemigo of personajesEnemigos) {
     $(`#cards`).append(`<div class="card" style="width: 18rem;">
         <div class="card-body">
-          <img src="./imagenes/Inicio${enemigo.imagenId}.png" alt="retrato" class="volteado">
+          <img src="./imagenes/inicio${enemigo.imagenId}.png" alt="retrato" class="volteado">
           <h2 class="card-title">${enemigo.nombre}</h2>
           <p class="card-text">Fuerza: ${enemigo.fuerza} </br>Defensa: ${enemigo.defensa} </br>Agilidad: ${enemigo.agilidad} </br>Vida: ${enemigo.vida}</p>
           <div class="btn-group" role="group" aria-label="Basic mixed styles example">
@@ -1591,7 +1591,7 @@ function preCombate() {
     $(`#cards`).append(`
           <div class="card" style="width: 40rem;">
             <div class="card-body">
-            <img src="./imagenes/Inicio${personajes[j].imagenId}.png" alt="retrato" class="volteado">
+            <img src="./imagenes/inicio${personajes[j].imagenId}.png" alt="retrato" class="volteado">
               <h3 class="card-title"><b>${personajes[j].nombre}</b></h3>
               <p class="card-text fs-3"><b>Fuerza:</b> ${personajes[j].fuerza} </br><b>Defensa:</b> ${personajes[j].defensa} </br><b>Agilidad:</b> ${personajes[j].agilidad} </br><b>Vida:</b> ${personajes[j].vida}
               <br><b>${personajes[j].habilidadFuerza.nombre}:</b> ${personajes[j].habilidadFuerza.descripcion}
@@ -1650,7 +1650,7 @@ function botonEmpezarBatalla() {
     $(`#opciones`).append(`
           <div class="card" style="width: auto;">
             <div id= "card${j}" class="card-body">
-            <img src="./imagenes/Inicio${
+            <img src="./imagenes/inicio${
               personajes[j].imagenId
             }.png" alt="retrato" class="volteado">
             <h3 class="card-title"><b>${personajes[j].nombre}</b></h3>
