@@ -19,6 +19,7 @@ class Personaje {
   //Calculo de vida
 
   calculoVida() {
+    const vidaBase = 50;
     this.vida = vidaBase - this.fuerza - this.defensa - this.agilidad;
   }
 
@@ -32,59 +33,57 @@ class Personaje {
     }
   }
 
-  //Calculo de daño de golpe (Depende de valores del personaje rival)
+  //Calculo de daño de golpe (Depende de valores del personaje rival).
 
-  danio(defensaEnemigo) {
+  danio(criticoPropio, defensaEnemigo) {
+    const danioBase = 10;
+    const criticoMaximo = 100;
     this.golpe = Math.floor(
       (this.fuerza - defensaEnemigo + danioBase) * (aleatorio() * 0.004 + 0.8)
     );
-  }
-
-  //Calculo de daño de golpe critico (Depende de valores del personaje rival)
-
-  danioCritico(defensaEnemigo) {
-    this.golpe = Math.floor(
-      (this.fuerza - defensaEnemigo + danioBase) *
-        (aleatorio() * 0.004 + 0.8) *
-        1.5
-    );
+    //Calculo si hay daño critico
+    if (criticoMaximo - this.critico <= criticoPropio) {
+      $(`#turnos`).append(`<p>¡${this.nombre} realiza un golpe crítico!</p>`);
+      this.golpe = Math.floor(this.golpe * 1.5);
+    }
+    //Para evitar que el defensor se "cure" con los golpes, en caso de ser negativos son cambiados a cero
+    if (this.golpe < 0) {
+      this.golpe = 0;
+    }
   }
 
   //Funcion que agrega las habilidades segun sus estadisticas
 
   asignarHabilidades(j) {
-    //Para averiguar que habilidad le corresponde a cada personaje de acuerdo con sus valores ingresados utilizo la siguiente variable "ayuda" = "a".
-    //Es un array de 19 habilidades. Las dos primeras las tienen todos los personajes, pues son atacar y defender. Luego, las tres siguientes se calculan de la
-    //misma manera. Para el caso de fuerza por ejemplo si tiene 1 o 2, tendran la habilidad id 3 (enfoque), si tienen 3, 4 o 5 tendran la siguiente, si tienen
-    //6, 7 u 8 tendran la siguiente y si tienen 9 o 10 tendran la ultima de las habilidades de fuerza. La siguiente en el orden de id es la primera habilidad de defensa
-    // y se repite el mecanismo luego con las habilidades de agilidad. Por ultimo se hace similar para la vida, solo que tienen un rango mas amplio y mayor numero de
-    //habilidades. Con vida menor a 27 tienen una habilidad, entre 27 y 31 tendran otra, y asi. El valor de "a" se va eligiendo para que las habilidades fuerza sean
-    // 1+a[0] (empieza en 1 porque 0 y 1 corresponder a atacar y defender), las habilidades defensa sean 5 + a[1] (en este caso empieza en 5 porque se agregan las 4
-    //habilidades de fuerza), y asi, para poder elegir la habilidad correcta dentro del array de habilidades de 19 habilidades.
+    //En el json se encuentran las 19 habilidades en un array. Para saber cual corresponde a cada personaje segun sus estadisticas, evaluo los valores y les voy asignando un número en el
+    //"posicionHabilidadesArray" del 1 al 4, cada uno correspondiente a una habilidad diferente basada en cada estadistica.
 
-    let a = [0, 0, 0, 0];
-    let medio = [this.fuerza, this.defensa, this.agilidad];
+    let posicionHabilidadArray = [];
+    let estadisticasArray = [this.fuerza, this.defensa, this.agilidad];
     for (let p = 0; p < 3; p++) {
-      if (medio[p] < 3) {
-        a[p] = 1;
-      } else if (medio[p] < 6) {
-        a[p] = 2;
-      } else if (medio[p] < 9) {
-        a[p] = 3;
+      if (estadisticasArray[p] < 3) {
+        posicionHabilidadArray[p] = 1;
+      } else if (estadisticasArray[p] < 6) {
+        posicionHabilidadArray[p] = 2;
+      } else if (estadisticasArray[p] < 9) {
+        posicionHabilidadArray[p] = 3;
       } else {
-        a[p] = 4;
+        posicionHabilidadArray[p] = 4;
       }
     }
+
+    //Con la estadistica vida el proceso es el mismo, pero cambian los rangos de valores (en vez de ser de 1 a 10, es de 20 a 47), y la cantidad de habilidades disponibles (5 en vez de 4)
+
     if (this.vida < 27) {
-      a[3] = 1;
+      posicionHabilidadArray[3] = 1;
     } else if (this.vida < 31) {
-      a[3] = 2;
+      posicionHabilidadArray[3] = 2;
     } else if (this.vida < 35) {
-      a[3] = 3;
+      posicionHabilidadArray[3] = 3;
     } else if (this.vida < 41) {
-      a[3] = 4;
+      posicionHabilidadArray[3] = 4;
     } else {
-      a[3] = 5;
+      posicionHabilidadArray[3] = 5;
     }
 
     //Para leer el JSON de habilidades utilizo lo siguiente
@@ -95,12 +94,14 @@ class Personaje {
       url: "habilidades.json",
       dataType: "json",
       success: function (data) {
+        //La posicion 0 y 1 corresponde a atacar y defender, habilidades basicas que tienen todos los personajes. Para el resto se utilizan los valores calculados previamente.
+
         personajes[j].habilidadAtacar = data[0];
         personajes[j].habilidadDefender = data[1];
-        personajes[j].habilidadFuerza = data[1 + a[0]];
-        personajes[j].habilidadDefensa = data[5 + a[1]];
-        personajes[j].habilidadAgilidad = data[9 + a[2]];
-        personajes[j].habilidadVida = data[13 + a[3]];
+        personajes[j].habilidadFuerza = data[1 + posicionHabilidadArray[0]];
+        personajes[j].habilidadDefensa = data[5 + posicionHabilidadArray[1]];
+        personajes[j].habilidadAgilidad = data[9 + posicionHabilidadArray[2]];
+        personajes[j].habilidadVida = data[13 + posicionHabilidadArray[3]];
       },
     });
   }
