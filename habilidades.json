@@ -14,7 +14,7 @@
   {
     "id": 3,
     "nombre": "Enfoque",
-    "descripcion": "Concentra fuerza para el próximo ataque. Acción de defensa. Coste 4 puntos de energía",
+    "descripcion": "Concentra fuerza, haciendo más poderoso el próximo ataque. Acción de defensa. Coste 4 puntos de energía",
     "coste": 4
   },
   {
@@ -92,25 +92,25 @@
   {
     "id": 16,
     "nombre": "Hiperactivo",
-    "descripcion": "Su energía máxima es de 13 y empieza con 6. Pasiva",
+    "descripcion": "Su energía máxima es de 13 y empieza con 8. Pasiva",
     "coste": 0
   },
   {
     "id": 17,
     "nombre": "Meditación",
-    "descripcion": "Genera 1 de energía adicional por turno. Pasiva",
+    "descripcion": "Genera 1 o 2 de energía adicional por turno. Pasiva",
     "coste": 0
   },
   {
     "id": 18,
     "nombre": "Regeneración",
-    "descripcion": "Regenera 1 de vida por turno. Pasiva",
+    "descripcion": "Regenera 1 o 2 de vida por turno. Pasiva",
     "coste": 0
   },
   {
     "id": 19,
-    "nombre": "Revitalización",
-    "descripcion": "Regenera 2 de vida por turno. Pasiva",
+    "nombre": "Sed de sangre",
+    "descripcion": "Cuando la vida cae a niveles bajos, aumenta mucho la probabilidad de crítico y se cura gran parte del daño que causan sus acciones ofensivas. Pasiva",
     "coste": 0
   }
 ]
